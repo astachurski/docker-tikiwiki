@@ -1,7 +1,7 @@
-FROM montefuscolo/php:5-apache
+FROM montefuscolo/php:7-apache
 MAINTAINER Fabio Montefuscolo <fabio.montefuscolo@gmail.com>
 
-ARG TIKI_SOURCE="https://gitlab.com/tikiwiki/tiki/-/archive/17.x/tiki-17.x.tar.gz"
+ARG TIKI_SOURCE="https://gitlab.com/tikiwiki/tiki/-/archive/18.x/tiki-18.x.tar.gz"
 ARG TIKI_HTDOCS="/var/www/html"
 WORKDIR "${TIKI_HTDOCS}"
 
@@ -11,7 +11,7 @@ RUN curl -o tiki.tar.gz -L "${TIKI_SOURCE}" \
     && { \
         echo "<?php"; \
         echo "    \$db_tiki        = getenv('TIKI_DB_DRIVER') ?: 'mysqli';"; \
-        echo "    \$dbversion_tiki = getenv('TIKI_DB_VERSION') ?: '17';"; \
+        echo "    \$dbversion_tiki = getenv('TIKI_DB_VERSION') ?: '18';"; \
         echo "    \$host_tiki      = getenv('TIKI_DB_HOST') ?: 'db';"; \
         echo "    \$user_tiki      = getenv('TIKI_DB_USER');"; \
         echo "    \$pass_tiki      = getenv('TIKI_DB_PASS');"; \
